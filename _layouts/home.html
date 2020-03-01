@@ -1,0 +1,27 @@
+{% for post in site.posts %}
+    
+    <li><a href="{{post.url}}">
+        {{post.title}}
+    </a></li>
+    
+    <br>
+{% endfor %}
+
+List the people in the people file
+<br>
+{% for dude in site.data.people %}
+    {{dude.name}}, {{dude.occupation}} <br>
+{% endfor %}
+<br>
+List the static files in the site
+<br>
+
+{% for file1 in site.static_files %}
+    {% if file1.image %}
+    <img src="{{file1.path}}" alt="{{file1.name}}"> 
+    <br>{{file1.path}}
+
+    {% endif%}
+    
+    <br>
+{% endfor %}
