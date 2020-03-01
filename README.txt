@@ -24,7 +24,7 @@ permalink
 ---
 I love [Mood Indigo](https://moodi.org)
 
-so that only post is post also default
+so that only post is post template also default
 defaults:
   - 
     scope:
@@ -33,6 +33,27 @@ defaults:
     values:
         layout: "post"
         title: "My Title"
+
+
+FOR INCLUDE:
+THIS IS HIDDEN INSIDE: IN THE _includes FOLDER
+<h1 style= "color: {{include.color }}">{{site.title}} is the title in header.html</h1>
+<hr><br>
+
+INCLUDE.COLOR IS ATTRIBUTE COLOR OF TAG INCLUDE
+THIS IS OUTSIDE:
+{% include header.html color="blue" %}
+
+
+
+TRY PUTTING IN WRAPPER CLASSES
+
+TO MAKE ALL FILES IN FOLDER IMAGES:
+- 
+    scope:
+      path: "assets/img"
+    values:
+      image: true
 
 
 
@@ -51,6 +72,8 @@ FOR LOOPS + IF CONDITION:
 
 List the people in the people file
 <br>
+
+FOR LOOPING THROUGH DATA(from _data/PEOPLE.YML)
 {% for dude in site.data.people %}
     {{dude.name}}, {{dude.occupation}} <br>
 {% endfor %}
@@ -58,6 +81,7 @@ List the people in the people file
 List the static files in the site
 <br>
 
+FOR LOOPING THROUGH ALL STATIC FILES LIKE IMAGES AND STUFF
 {% for file1 in site.static_files %}
     {% if file1.image %}
     <img src="{{file1.path}}" alt="{{file1.name}}"> 
